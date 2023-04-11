@@ -105,7 +105,7 @@ bool _matchesPattern(String string, Pattern pattern) =>
     string.contains(pattern);
 
 bool isValid(String code) {
-  if (code == null || code.length == 1) {
+  if (code.length == 1) {
     return false;
   }
 
@@ -134,7 +134,7 @@ bool isValid(String code) {
     if (padMatch.length != 1) {
       return false;
     }
-    var matchLength = padMatch.first.group(0).length;
+    var matchLength = padMatch.first.group(0)?.length ?? 0;
     if (matchLength.isOdd || matchLength > separatorPosition - 2) {
       return false;
     }
